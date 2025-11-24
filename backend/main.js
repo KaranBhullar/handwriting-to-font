@@ -1,9 +1,11 @@
-import binarizeImage from "./utils/binarize.js";
 import { Jimp } from "jimp";
+import { binarizeImage } from "./utils/binarize.js";
+
 
 async function run() {
 	const image = await Jimp.read("images/input.png");
-	return await binarizeImage(image);
+	await binarizeImage(image);
+	await image.write("images/output.png")
 }
 
 run();
